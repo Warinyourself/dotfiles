@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/sun/Documents/Programming/Web/profile/src/assets'
+let g:netrw_dirhist_2='/home/sun/Documents/Programming/Applications/VueNative/existence'
+let g:netrw_dirhist_3='/home/sun/Downloads'
+let g:netrw_dirhist_4='/home/sun/Documents/Design/Linux/Now'
+let g:netrw_dirhist_5='/home/sun/Documents/Programming/Applications/windowRust'
+let g:netrw_dirhist_6='/home/sun/Documents/Programming/Applications/webkit-greeter/arch-package'

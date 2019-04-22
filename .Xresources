@@ -1,0 +1,101 @@
+#include "/home/$USER/.config/xcolor/colors"
+
+*background: BACKGROUND
+*foreground: ACTIVE
+*cursorColor: ACTIVE
+
+!! Black dark/light
+*color0:  COLOR0
+*color8:  COLOR8
+
+!! Red dark/light
+*color1:  COLOR1
+*color9:  COLOR9
+
+!! Green dark/light
+*color2:  COLOR2
+*color10: COLOR10
+
+!! Yellow dark/light
+*color3:  COLOR3
+*color11: COLOR11
+
+!! Blue dark/light
+*color4:  COLOR4
+*color12: COLOR12
+
+!! Magenta dark/light
+*color5:  COLOR5
+*color13: COLOR13
+
+!! Cyan dark/light
+*color6:  COLOR6
+*color14: COLOR14
+
+!! White dark/light
+*color7:  COLOR7
+*color15: COLOR15
+
+*active:  ACTIVE
+*actives: ACTIVES 
+*backgrounds: BACKGROUNDS
+
+URxvt*font: xft: Ubuntu Nerd Font:pixelsize=12, xft: Noto Color Emoji:style=Regular:pixelsize=12
+
+URxvt.perl-ext-common: keyboard-select,resize-font,default,matcher
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
+!URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+URxvt.perl-lib: ~/.config/urxvt/
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+
+URxvt.depth:                      32
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*saveLines:                  5000
+URxvt*internalBorder: 5
+URxvt*geometry: 70x25
+
+
+!rofi.modi: drun,assymble:~/.local/share/rofi/rf.sh,run,ssh
+rofi.modi: drun,run
+rofi.window: 20
+rofi.location: 0
+rofi.sidebar-mode: true
+rofi.show-icons: true
+
+rofi.color-enabled: true
+
+
+!  bg Background color row
+!  fg Text color
+!  bgalt Background color alternating row
+!  hlfg Foreground color selected row
+!  hlbg Background color selected row
+
+
+! State:           Bg          Fg          Bgalt       hlbg        hlfg
+rofi.color-normal: BACKGROUND, FOREGROUND, BACKGROUND, ACTIVE,     BACKGROUND
+rofi.color-active: BACKGROUND, ACTIVES, BACKGROUND, BACKGROUND, ACTIVE
+rofi.color-urgent: BACKGROUND, FOREGROUND, BACKGROUND, BACKGROUND, COLOR1
+
+!                  Background  Border  Separator
+rofi.color-window: BACKGROUND, ACTIVE, BACKGROUND
+
+
+
+rofi.separator-style: solid
+rofi.lines: 15
+rofi.font: Source Code Pro Semibold 11
+rofi.bw: 2
+rofi.matching: fuzzy
+rofi.columns: 2
+rofi.padding: 15
+rofi.hide-scrollbar: true
