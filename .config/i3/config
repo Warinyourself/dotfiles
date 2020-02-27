@@ -9,9 +9,9 @@ new_float normal
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
+#bindsym $mod+Shift+n border none
+#bindsym $mod+Shift+p border pixel 2
+#bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,7 +31,9 @@ bindsym $mod+x kill
 
 # start launcher
 #bindsym $mod+d exec rofi -fake-transparency -theme "/usr/share/rofi/themes/android_notification.rasi" -show run
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec sh ~/.config/rofi/scripts/appsmenu.sh
+bindsym $mod+Shift+p exec sh ~/.config/rofi/scripts/powermenu.sh
+bindsym $mod+Shift+d exec rofi -show drun
 bindsym $mod+Ctrl+d exec rofi -show assymble:~/.local/share/rofi/rf.sh
 
 
@@ -54,19 +56,27 @@ bindsym $mod+Ctrl+e exec evince
 bindsym $mod+Ctrl+p exec pavucontrol
 bindsym $mod+Ctrl+n exec urxvt -e ncmpcpp
 bindsym $mod+i exec flameshot gui 
+bindsym $mod+y exec cd ~/tmp/edex-ui/ && npm start
 bindsym $mod+Ctrl+i exec flameshot gui -d 2000 
 bindsym $mod+Ctrl+c exec gnome-calculator
 bindsym $mod+F3 exec --no-startup-id urxvt -e ranger
-bindsym $mod+F4 exec pcmanfm
+bindsym $mod+"`" exec pcmanfm
+bindsym $mod+c exec --no-startup-id code
+bindsym $mod+p exec --no-startup-id postman
+bindsym $mod+b exec --no-startup-id brave
 bindsym $mod+Shift+F4 exec gksu pcmanfm
 bindsym $mod+Shift+F3 exec --no-startup-id urxvt -e sudo ranger
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Shift+t exec --no-startup-id compton -b
 
+# Lock
+bindsym $mod+l exec --no-startup-id i3lock-fancy
+
 
 # Keybilding
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +1%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -1%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 6
 bindsym XF86MonBrightnessDown exec xbacklight -dec 6
 
@@ -74,7 +84,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 6
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+bindsym $mod+u focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -246,6 +256,7 @@ set_from_resource $fbg cursorColor
 
 # Autoload
 exec_always --no-startup-id ~/.fehbg
+exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xset -b
 exec_always --no-startup-id sh ~/.config/i3/language
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -253,10 +264,16 @@ exec_always --no-startup-id dunst -lb "$bg" -lf "$fbg" -nb "$bg" -nf "$fbg" -cb 
 exec_always --no-startup-id compton -bCG --config ~/.config/compton.conf
 exec_always --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id pulseaudio
+exec_always --no-startup-id pulseaudio -k && pulseaudio -D -v
 exec_always --no-startup-id mpd
 exec_always --no-startup-id mpc add /
 exec_always --no-startup-id udiskie
+exec_always --no-startup-id xbindkeys
+exec_always --no-startup-id libinput-gestures-setup start
 exec_always --no-startup-id sh Documents/Programming/Bash/upnotify.sh
+
+# exec_always --no-startup-id nice xwinwrap -b -s -fs -st -sp -nf -ov -ni -- mpv -wid WID --really-quiet --framedrop=vo --no-audio --panscan="1.0" /home/atlant/Videos/Wallpaper/jellyfish.mp4 --loop=inf
+
+
 #exec_always --no-startup-id start_conky
 #exec_always --no-startup-id xfce4-power-manager
