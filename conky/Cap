@@ -1,0 +1,70 @@
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+
+double_buffer yes
+#minimum_size 250 5
+#maximum_width 500
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color white
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 10
+gap_y 40
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+currency icon
+color1 CACCCB
+color3 77BF85
+
+minimum_size 0 0
+TEXT
+${voffset 10}${color1}${font ITC Avant Garde Gothic Pro:size=100}${time %H:%M}\
+${font}${voffset -90}${offset 5}${color3}${font ITC Avant Garde Gothic Pro:pixelsize=45}${time %d}\
+${offset 10}${voffset -18}${color EAEAEA}${font GE Inspira:pixelsize=20}${time  %B}\
+${time %Y}${offset 5}${voffset 20}${color1}${font GE Inspira:pixelsize=20}${offset -95}${time %A}${font}
+## HD
+\
+${voffset 70}${offset 12}${font Ubuntu:pixelsize=12}${color3}HD ${offset 9}$color${fs_free /} / ${fs_size /}\
+## RAM
+\
+${offset 30}${color3}RAM ${offset 9}$color$memperc%\
+## CPU
+\
+${color1}${offset 40}${color3}CPU ${offset 9}$color${cpu cpu0}%\
+\
+## Wi-fi
+${offset 40}${color3}WiFi ${offset 12}${color EAEAEA}${wireless_link_qual wlan0}%\
+\
+##CAP
+${offset 30}${color3}CAP ${offset 12}${color EAEAEA}${execi 600 ./MarketScanning.sh global}\
+
+##Coin
+## Symbol
+\
+${voffset -65}${offset 345}${font ITC Avant Garde Gothic Pro:bold:size=36}${execi 600 ./MarketScanning.sh cardano symbol}\
+## Cost
+\
+${color3}${voffset -28}${offset 10}${font ITC Avant Garde Gothic Pro:bold:size=10}${execi 600 ./MarketScanning.sh cardano} $alignr\
+\
+${color3}${font ITC Avant Garde Gothic Pro:bold:size=10}${execi 600 ./MarketScanning.sh cardano precent}%
+\
+\
